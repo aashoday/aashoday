@@ -1,5 +1,5 @@
-## Hi there 👋
+## Hey! Checkout this ASCII art :snowflake:
 
 <p align="center">
-  <img src="assets/output.gif" alt="ASCII Demo" width="800">
+  <img src="assets/ascii.gif" alt="ASCII animation" width="800">
 </p>
