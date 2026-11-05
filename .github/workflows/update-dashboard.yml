@@ -1,0 +1,48 @@
+name: Update dashboard
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:         # "Run workflow" button = on demand
+  push:
+    branches: [main]
+    paths: [config.json, docs/index.html, scripts/**]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-dashboard
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch live GitHub data
+        run: node scripts/fetch-data.mjs
+        env:
+          # Optional: add a PAT with read:user as secret GH_PAT to include private contributions.
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          GH_USER: ${{ github.repository_owner }}
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Screenshot dashboard
+        run: node scripts/screenshot.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data.json assets/dashboard.png
+          git diff --staged --quiet || (git commit -m "chore: refresh dashboard" && git push)
