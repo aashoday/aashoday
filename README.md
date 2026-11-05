@@ -1,11 +1,5 @@
-<p align="center">
-  <img src="assets/header.svg">
-</p>
+<a href="https://aashoday.github.io/aashoday/">
+  <img src="assets/dashboard.png" alt="aashoday live GitHub dashboard" width="100%">
+</a>
 
-<p align="center">
-  <img src="assets/skills.svg">
-</p>
-
-<p align="center">
-  <img src="assets/gh-stats.svg">
-</p>
+<sub>Live dashboard, refreshed every 6 hours by GitHub Actions. Click it for the animated version.</sub>
