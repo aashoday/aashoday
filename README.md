@@ -1,4 +1,4 @@
-![Aashoday](assets/aashoday.png)
+# AASHODAY
 
 ---
 
