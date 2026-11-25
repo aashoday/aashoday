@@ -1,7 +1,5 @@
 # AASHODAY
 
----
-
 ### Contact
 [![LinkedIn](https://img.shields.io/static/v1?logo=linkedin&label=LinkedIn&message=Connect&color=lightblue)](https://www.linkedin.com/in/aashoday-surwade-58b815253?utm_source=share_via&utm_content=profile&utm_medium=member_android)
 [![X](https://img.shields.io/static/v1?logo=x&label=X&message=Follow&color=black)](https://x.com/aashoday)
